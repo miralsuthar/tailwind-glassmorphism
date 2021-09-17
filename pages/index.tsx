@@ -7,10 +7,10 @@ import { Code } from '../components/Code';
 import { Color } from '../components/Color';
 
 const Home: NextPage = () => {
-  const [opacity, setOpacity] = useState(0);
-  const [backdrop, setBackdrop] = useState<string>('none');
-  const [saturation, setSaturation] = useState<number>(0);
-  const [color, setColor] = useState<string>('white');
+  const [opacity, setOpacity] = useState(10);
+  const [backdrop, setBackdrop] = useState<string>('sm');
+  const [saturation, setSaturation] = useState<number>(400);
+  const [color, setColor] = useState<string>('gray');
 
   const backdropOptions = [
     { value: 'none', label: 'None' },
@@ -49,6 +49,7 @@ const Home: NextPage = () => {
           options={backdropOptions}
           // @ts-ignore
           selectChange={({ value }) => setBackdrop(value)}
+          backdropDefault={backdropOptions[2].value}
         />
         <Color
           value={saturation}

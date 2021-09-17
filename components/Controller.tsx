@@ -15,6 +15,7 @@ type Props = {
   onChange: any;
   options: Options[];
   selectChange: any;
+  backdropDefault?: any;
 };
 export const Controller = ({
   value,
@@ -24,6 +25,7 @@ export const Controller = ({
   onChange,
   options,
   selectChange,
+  backdropDefault,
 }: Props) => {
   return (
     <div className="h-20 px-4 rounded-md bg-secondary py-2 gap-10 flex justify-center items-center">
@@ -46,6 +48,7 @@ export const Controller = ({
           className="w-52"
           options={options}
           onChange={selectChange}
+          defaultValue={{ label: 'Small', value: 'sm' }}
         />
       </div>
     </div>

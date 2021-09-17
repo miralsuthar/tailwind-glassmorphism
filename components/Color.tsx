@@ -46,6 +46,7 @@ export const Color = ({
           className="w-52"
           options={options}
           onChange={selectChange}
+          defaultValue={{ label: 'Gray', value: 'gray' }}
         />
       </div>
     </div>
