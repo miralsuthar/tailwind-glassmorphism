@@ -3,8 +3,10 @@ import React from 'react';
 type Props = {
   blur: string;
   opacity: string;
+  color: string;
+  saturation: string;
 };
-export const Code = ({ blur, opacity }: Props) => {
+export const Code = ({ blur, opacity, color, saturation }: Props) => {
   const copyCode = () => {
     const text = document.getElementById('code');
   };
@@ -18,8 +20,9 @@ export const Code = ({ blur, opacity }: Props) => {
           <span>=</span>
           <span className="text-green-500">{`"`}</span>
           <span className="text-green-500">
-            h-full w-full bg-white rounded-md bg-clip-padding backdrop-filter
-            backdrop-blur-{blur} bg-opacity-{opacity} border border-gray-100
+            h-full w-full bg-{color}-{saturation} rounded-md bg-clip-padding
+            backdrop-filter backdrop-blur-{blur} bg-opacity-{opacity} border
+            border-gray-100
           </span>
           <span className="text-green-500">{`"`}</span>
           <span>{`>`}</span>

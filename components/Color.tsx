@@ -16,7 +16,7 @@ type Props = {
   options: Options[];
   selectChange: any;
 };
-export const Controller = ({
+export const Color = ({
   value,
   maxValue,
   minValue,
@@ -28,7 +28,7 @@ export const Controller = ({
   return (
     <div className="h-20 px-4 rounded-md bg-secondary py-2 gap-10 flex justify-center items-center">
       <div>
-        <p className="text-white">Background Opacity</p>
+        <p className="text-white">Saturation</p>
         <Slider
           axis="x"
           x={value}
@@ -40,7 +40,7 @@ export const Controller = ({
       </div>
 
       <div>
-        <p className="text-white">Backdrop Blur</p>
+        <p className="text-white">Color</p>
         <Select
           isSearchable={false}
           className="w-52"
