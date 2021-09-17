@@ -53,7 +53,7 @@ const Home: NextPage = () => {
         <Color
           value={saturation}
           maxValue={900}
-          minValue={100}
+          minValue={0}
           step={100}
           // @ts-ignore
           onChange={({ x }) => setSaturation(x)}
