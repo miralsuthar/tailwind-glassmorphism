@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Axios from 'axios';
 import type { NextPage } from 'next';
-import { Glass } from '../components/Glass';
-import { Controller } from '../components/Controller';
-import { Code } from '../components/Code';
-import { Color } from '../components/Color';
+import { supabase } from '../utils/supabaseClient';
+import { Code, Controller, Glass, Color } from '../components';
 
 const Home: NextPage = () => {
   const [opacity, setOpacity] = useState(10);
@@ -36,6 +35,13 @@ const Home: NextPage = () => {
     { value: 'purple', label: 'Purple' },
   ];
 
+  const imageUploadHandler = async (files: any) => {
+    console.log(files[0]);
+    // const formData = new FormData();
+    // formData.append('file', files[0]);
+    // const {data, error} = await supabase.storage.from('background-image').upload()
+  };
+
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center gap-5">
       <div className="flex gap-4">
@@ -61,6 +67,10 @@ const Home: NextPage = () => {
           options={colorOptions}
           // @ts-ignore
           selectChange={({ value }) => setColor(value)}
+        />
+        <input
+          type="file"
+          onChange={(event) => imageUploadHandler(event.target.files)}
         />
       </div>
 

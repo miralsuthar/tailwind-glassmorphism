@@ -30,7 +30,7 @@ export const Controller = ({
   return (
     <div className="h-20 px-4 rounded-md bg-secondary py-2 gap-10 flex justify-center items-center">
       <div>
-        <p className="text-white">Background Opacity</p>
+        <p className="text-white">Glass Opacity</p>
         <Slider
           axis="x"
           x={value}
