@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
+import React, { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
-import { Glass } from '../components/Glass';
-import { Controller } from '../components/Controller';
-import { Code } from '../components/Code';
-import { Color } from '../components/Color';
+
+import { Code, Controller, Glass, Color } from '../components';
 
 const Home: NextPage = () => {
   const [opacity, setOpacity] = useState(10);
   const [backdrop, setBackdrop] = useState<string>('sm');
   const [saturation, setSaturation] = useState<number>(400);
   const [color, setColor] = useState<string>('gray');
+  const [imageUrl, setImageUrl] = useState<string>('/sunset.jpg');
 
   const backdropOptions = [
     { value: 'none', label: 'None' },
@@ -35,6 +34,11 @@ const Home: NextPage = () => {
     { value: 'indigo', label: 'Indigo' },
     { value: 'purple', label: 'Purple' },
   ];
+
+  const preview = (files: any) => {
+    const imageSrc = URL.createObjectURL(files[0]);
+    setImageUrl(imageSrc);
+  };
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center gap-5">
@@ -62,6 +66,29 @@ const Home: NextPage = () => {
           // @ts-ignore
           selectChange={({ value }) => setColor(value)}
         />
+        <div className="overflow-hidden bg-secondary relative w-64 mt-4 mb-5 rounded-md">
+          <button className="z-0 cursor-pointer bg-blue hover:bg-blue-light text-white font-bold py-2 px-4 w-full inline-flex items-center">
+            <svg
+              fill="#FFF"
+              height="18"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+            </svg>
+            <span className="ml-2">Change Background</span>
+          </button>
+          <input
+            className="cursor-pointer absolute block z-10 top-0 left-0 w-full opacity-0 pin-r pin-t"
+            type="file"
+            accept="image/png, image/jpeg, image/jpg"
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              preview(event.target.files)
+            }
+          />
+        </div>
       </div>
 
       <Glass
@@ -69,6 +96,7 @@ const Home: NextPage = () => {
         color={color}
         saturation={saturation.toString()}
         opacity={opacity.toString()}
+        imageUrl={imageUrl}
       />
       <Code
         blur={backdrop}
