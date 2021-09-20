@@ -36,10 +36,20 @@ const Home: NextPage = () => {
   ];
 
   const imageUploadHandler = async (files: any) => {
-    console.log(files[0]);
-    // const formData = new FormData();
-    // formData.append('file', files[0]);
-    // const {data, error} = await supabase.storage.from('background-image').upload()
+    const file = files[0];
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${Math.random()}.${fileExt}`;
+    const filePath = `${fileName}`;
+
+    const { data, error } = await supabase.storage
+      .from('backgroud-image')
+      .upload(filePath, file);
+    if (error) {
+      console.log(error.message);
+    }
+    if (data) {
+      console.log('image upload successfull');
+    }
   };
 
   return (
