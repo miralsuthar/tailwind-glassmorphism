@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
-import { supabase } from '../utils/supabaseClient';
+
 import { Code, Controller, Glass, Color } from '../components';
 
 const Home: NextPage = () => {
@@ -10,6 +8,7 @@ const Home: NextPage = () => {
   const [backdrop, setBackdrop] = useState<string>('sm');
   const [saturation, setSaturation] = useState<number>(400);
   const [color, setColor] = useState<string>('gray');
+  const [imageUrl, setImageUrl] = useState<string>('/sunset.jpg');
 
   const backdropOptions = [
     { value: 'none', label: 'None' },
@@ -34,23 +33,6 @@ const Home: NextPage = () => {
     { value: 'indigo', label: 'Indigo' },
     { value: 'purple', label: 'Purple' },
   ];
-
-  const imageUploadHandler = async (files: any) => {
-    const file = files[0];
-    const fileExt = file.name.split('.').pop();
-    const fileName = `${Math.random()}.${fileExt}`;
-    const filePath = `${fileName}`;
-
-    const { data, error } = await supabase.storage
-      .from('backgroud-image')
-      .upload(filePath, file);
-    if (error) {
-      console.log(error.message);
-    }
-    if (data) {
-      console.log('image upload successfull');
-    }
-  };
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center gap-5">
@@ -78,10 +60,6 @@ const Home: NextPage = () => {
           // @ts-ignore
           selectChange={({ value }) => setColor(value)}
         />
-        <input
-          type="file"
-          onChange={(event) => imageUploadHandler(event.target.files)}
-        />
       </div>
 
       <Glass
@@ -89,6 +67,7 @@ const Home: NextPage = () => {
         color={color}
         saturation={saturation.toString()}
         opacity={opacity.toString()}
+        imageUrl={imageUrl}
       />
       <Code
         blur={backdrop}
