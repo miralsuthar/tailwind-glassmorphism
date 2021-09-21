@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 
-import { Code, Controller, Glass, Color } from '../components';
+import { Code, Controller, Glass, Color, Meta } from '../components';
 
 const Home: NextPage = () => {
   const [opacity, setOpacity] = useState(10);
@@ -42,6 +42,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center gap-5">
+      <Meta />
       <h1 className="text-4xl text-white font-bold -mt-10 mb-10">
         Tailwindcss Glassmorphism Generator
       </h1>

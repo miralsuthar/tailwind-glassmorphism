@@ -4,11 +4,6 @@ import Head from 'next/head';
 import { Meta } from '../components';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Meta />
-      <Component {...pageProps} />
-    </>
-  );
+  return <Component {...pageProps} />;
 }
 export default MyApp;
