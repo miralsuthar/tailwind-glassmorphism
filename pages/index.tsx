@@ -107,6 +107,14 @@ const Home: NextPage = () => {
         color={color}
         saturation={saturation.toString()}
       />
+      <div className="mt-10">
+        <h2 className="text-white text-lg font-bold">
+          Made with ❤ by{' '}
+          <a className="text-green-400" href="https://github.com/miralsuthar">
+            Miral
+          </a>
+        </h2>
+      </div>
     </div>
   );
 };
