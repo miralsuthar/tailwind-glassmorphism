@@ -45,7 +45,7 @@ const Home: NextPage = () => {
       <h1 className="text-5xl text-white font-bold -mt-10 mb-10">
         Tailwind Glassmorphism
       </h1>
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap justify-center">
         <Controller
           value={opacity}
           maxValue={100}
