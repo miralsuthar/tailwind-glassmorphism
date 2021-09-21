@@ -31,7 +31,7 @@ export const Glass = ({
             <h1 className="text-4xl font-bold text-white">Miral Suthar</h1>
             <p className="text-2xl font-semibold text-gray-200">
               Hello, I am Frontend Developer from India <br /> and this is
-              tailwind glassmorphism
+              tailwindcss glassmorphism
             </p>
           </div>
           <div className="h-80 w-90">
