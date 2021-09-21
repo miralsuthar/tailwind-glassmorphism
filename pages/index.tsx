@@ -42,8 +42,8 @@ const Home: NextPage = () => {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center gap-5">
-      <h1 className="text-5xl text-white font-bold -mt-10 mb-10">
-        Tailwindcss Glassmorphism
+      <h1 className="text-4xl text-white font-bold -mt-10 mb-10">
+        Tailwindcss Glassmorphism Generator
       </h1>
       <div className="flex gap-4 flex-wrap justify-center">
         <Controller
