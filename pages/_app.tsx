@@ -4,6 +4,13 @@ import Head from 'next/head';
 import { Meta } from '../components';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <Meta />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 export default MyApp;
