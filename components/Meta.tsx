@@ -23,6 +23,7 @@ export const Meta = () => {
         name="twitter:image"
         content={`https://tailwindcss-glassmorphism.vercel.app${thumb}`}
       />
+      <title>Tailwindcss Glassmorphism Generator</title>
     </Helmet>
   );
 };
