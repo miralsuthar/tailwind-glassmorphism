@@ -42,84 +42,86 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="h-screen w-screen flex flex-col justify-center items-center gap-5">
+    <main>
       <Head>
         <Meta />
       </Head>
-      <h1 className="text-4xl text-white font-bold -mt-10 mb-10">
-        Tailwindcss Glassmorphism Generator
-      </h1>
-      <div className="flex gap-4 flex-wrap justify-center">
-        <Controller
-          value={opacity}
-          maxValue={100}
-          minValue={0}
-          step={10}
-          // @ts-ignore
-          onChange={({ x }) => setOpacity(x)}
-          options={backdropOptions}
-          // @ts-ignore
-          selectChange={({ value }) => setBackdrop(value)}
-          backdropDefault={backdropOptions[2].value}
-        />
-        <Color
-          value={saturation}
-          maxValue={900}
-          minValue={0}
-          step={100}
-          // @ts-ignore
-          onChange={({ x }) => setSaturation(x)}
-          options={colorOptions}
-          // @ts-ignore
-          selectChange={({ value }) => setColor(value)}
-        />
-        <div className="overflow-hidden bg-secondary relative w-64 mt-4 mb-5 rounded-md">
-          <button className="z-0 cursor-pointer bg-blue hover:bg-blue-light text-white font-bold py-2 px-4 w-full inline-flex items-center">
-            <svg
-              fill="#FFF"
-              height="18"
-              viewBox="0 0 24 24"
-              width="18"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
-            </svg>
-            <span className="ml-2">Change Background</span>
-          </button>
-          <input
-            className="cursor-pointer absolute block z-10 top-0 left-0 w-full opacity-0 pin-r pin-t"
-            type="file"
-            accept="image/png, image/jpeg, image/jpg"
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              preview(event.target.files)
-            }
+      <div className="h-screen w-screen flex flex-col justify-center items-center gap-5">
+        <h1 className="text-4xl text-white font-bold -mt-10 mb-10">
+          Tailwindcss Glassmorphism Generator
+        </h1>
+        <div className="flex gap-4 flex-wrap justify-center">
+          <Controller
+            value={opacity}
+            maxValue={100}
+            minValue={0}
+            step={10}
+            // @ts-ignore
+            onChange={({ x }) => setOpacity(x)}
+            options={backdropOptions}
+            // @ts-ignore
+            selectChange={({ value }) => setBackdrop(value)}
+            backdropDefault={backdropOptions[2].value}
           />
+          <Color
+            value={saturation}
+            maxValue={900}
+            minValue={0}
+            step={100}
+            // @ts-ignore
+            onChange={({ x }) => setSaturation(x)}
+            options={colorOptions}
+            // @ts-ignore
+            selectChange={({ value }) => setColor(value)}
+          />
+          <div className="overflow-hidden bg-secondary relative w-64 mt-4 mb-5 rounded-md">
+            <button className="z-0 cursor-pointer bg-blue hover:bg-blue-light text-white font-bold py-2 px-4 w-full inline-flex items-center">
+              <svg
+                fill="#FFF"
+                height="18"
+                viewBox="0 0 24 24"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+              </svg>
+              <span className="ml-2">Change Background</span>
+            </button>
+            <input
+              className="cursor-pointer absolute block z-10 top-0 left-0 w-full opacity-0 pin-r pin-t"
+              type="file"
+              accept="image/png, image/jpeg, image/jpg"
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                preview(event.target.files)
+              }
+            />
+          </div>
+        </div>
+
+        <Glass
+          blur={backdrop}
+          color={color}
+          saturation={saturation.toString()}
+          opacity={opacity.toString()}
+          imageUrl={imageUrl}
+        />
+        <Code
+          blur={backdrop}
+          opacity={opacity.toString()}
+          color={color}
+          saturation={saturation.toString()}
+        />
+        <div className="mt-10">
+          <h2 className="text-white text-lg font-bold">
+            Made with ❤ by{' '}
+            <a className="text-green-400" href="https://github.com/miralsuthar">
+              Miral
+            </a>
+          </h2>
         </div>
       </div>
-
-      <Glass
-        blur={backdrop}
-        color={color}
-        saturation={saturation.toString()}
-        opacity={opacity.toString()}
-        imageUrl={imageUrl}
-      />
-      <Code
-        blur={backdrop}
-        opacity={opacity.toString()}
-        color={color}
-        saturation={saturation.toString()}
-      />
-      <div className="mt-10">
-        <h2 className="text-white text-lg font-bold">
-          Made with ❤ by{' '}
-          <a className="text-green-400" href="https://github.com/miralsuthar">
-            Miral
-          </a>
-        </h2>
-      </div>
-    </div>
+    </main>
   );
 };
 
