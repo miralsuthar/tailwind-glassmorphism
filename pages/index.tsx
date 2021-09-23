@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 
 import { Code, Controller, Glass, Color, Meta } from '../components';
 import Head from 'next/head';
+import thumb from '../public/thumb.png';
 
 const Home: NextPage = () => {
   const [opacity, setOpacity] = useState(10);
@@ -48,6 +49,10 @@ const Home: NextPage = () => {
         <meta
           property="og:title"
           content="Tailwindcss Glassmorphism Generator"
+        />
+        <meta
+          property="og:image"
+          content={`https://tailwindcss-glassmorphism.vercel.app${thumb}`}
         />
       </Head>
 
