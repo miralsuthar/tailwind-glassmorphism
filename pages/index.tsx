@@ -43,9 +43,7 @@ const Home: NextPage = () => {
 
   return (
     <main>
-      <Head>
-        <Meta />
-      </Head>
+      <Meta />
       <div className="h-screen w-screen flex flex-col justify-center items-center gap-5">
         <h1 className="text-4xl text-white font-bold -mt-10 mb-10">
           Tailwindcss Glassmorphism Generator
