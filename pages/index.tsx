@@ -44,7 +44,11 @@ const Home: NextPage = () => {
   return (
     <main>
       <Head>
-        <Meta />
+        <title>Tailwindcss Glassmorphism Generator</title>
+        <meta
+          property="og:title"
+          content="Tailwindcss Glassmorphism Generator"
+        />
       </Head>
 
       <div className="h-screen w-screen flex flex-col justify-center items-center gap-5">
