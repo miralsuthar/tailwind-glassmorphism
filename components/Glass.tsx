@@ -25,16 +25,18 @@ export const Glass = ({
         }}
       >
         <div
-          className={`h-full w-full bg-${color}-${saturation} rounded-md bg-clip-padding backdrop-filter backdrop-blur-${blur} bg-opacity-${opacity} border border-gray flex justify-between items-center px-32`}
+          className={`h-80 w-80 sm:h-full sm:w-full bg-${color}-${saturation} rounded-md bg-clip-padding backdrop-filter backdrop-blur-${blur} bg-opacity-${opacity} border border-gray flex justify-between items-center px-32`}
         >
           <div className="flex flex-col justify-center items-start gap-5">
-            <h1 className="text-4xl font-bold text-white">Miral Suthar</h1>
-            <p className="text-2xl font-semibold text-gray-200">
+            <h1 className="hidden sm:block text-4xl font-bold text-white">
+              Miral Suthar
+            </h1>
+            <p className="hidden sm:block text-2xl font-semibold text-gray-200">
               Hello, I am Frontend Developer from India <br /> and this is
               tailwindcss glassmorphism
             </p>
           </div>
-          <div className="h-80 w-90">
+          <div className="hidden sm:block h-80 w-90">
             <svg
               id="a13970f5-fcb6-45bc-88b6-f9395b0a599f"
               data-name="Layer 1"

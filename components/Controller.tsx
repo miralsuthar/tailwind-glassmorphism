@@ -28,7 +28,7 @@ export const Controller = ({
   backdropDefault,
 }: Props) => {
   return (
-    <div className="h-20 px-4 rounded-md bg-secondary py-2 gap-10 flex justify-center items-center">
+    <div className="h-20  px-4 rounded-md bg-secondary py-2 gap-10 flex justify-center items-center">
       <div>
         <p className="text-white">Glass Opacity</p>
         <Slider
