@@ -125,6 +125,7 @@ const Home: NextPage = () => {
           <a
             href={`https://www.producthunt.com/posts/tailwindcss-glassmorphism-generator?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-tailwindcss-glassmorphism-generator`}
             target="_blank"
+            rel="noreferrer"
           >
             <img
               src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=314087&theme=dark"
