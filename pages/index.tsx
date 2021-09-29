@@ -120,7 +120,21 @@ const Home: NextPage = () => {
         color={color}
         saturation={saturation.toString()}
       />
-      <div className="mt-10">
+      <div className="mt-10 flex justify-center items-center flex-col gap-3">
+        <div>
+          <a
+            href={`https://www.producthunt.com/posts/tailwindcss-glassmorphism-generator?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-tailwindcss-glassmorphism-generator`}
+            target="_blank"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=314087&theme=dark"
+              alt="Tailwindcss Glassmorphism Generator - Generate your own glassmorphism for tailwindcss.  | Product Hunt"
+              style={{ width: ' 250px', height: '54px' }}
+              width="250"
+              height="54"
+            />
+          </a>
+        </div>
         <h2 className="text-white text-lg font-bold">
           Made with ❤ by{' '}
           <a className="text-green-400" href="https://github.com/miralsuthar">
