@@ -1,4 +1,6 @@
-import React from 'react';
+import React from "react";
+import { FiCopy } from "react-icons/fi";
+import toast, { Toaster } from "react-hot-toast";
 
 type Props = {
   blur: string;
@@ -6,35 +8,27 @@ type Props = {
   color: string;
   saturation: string;
 };
-export const Code = ({ blur, opacity, color, saturation }: Props) => {
+
+export const Code: React.FC<Props> = ({ blur, opacity, color, saturation }) => {
+  const generatedCode = `bg-${color}-${saturation} rounded-md bg-clip-padding backdrop-filter backdrop-blur-${blur} bg-opacity-${opacity} border border-gray-100`;
+
   const copyCode = () => {
-    const text = document.getElementById('code');
+    navigator.clipboard.writeText(generatedCode);
+    toast.success("Code copied to clipboard!");
   };
+
   return (
-    <div className="bg-secondary w-full sm:w-3/4 flex text-white px-4 py-2 rounded-md">
-      <p
-        onCopy={() => {}}
-        className="font-bold text-sm sm:text-sm md:text-lg flex flex-wrap"
+    <div className="bg-secondary w-full sm:w-3/4 flex items-center justify-between text-white px-4 py-3 rounded-md border border-gray-700">
+      <Toaster />
+      <pre className="bg-gray-800 text-green-400 p-3 rounded-md text-sm font-mono whitespace-pre-wrap flex-1">
+        {generatedCode}
+      </pre>
+      <button
+        onClick={copyCode}
+        className="ml-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-sm transition active:scale-95"
       >
-        <span className="mr-2 ">{`<`}</span>
-        <span className="mr-2 text-blue-500">div </span>
-
-        <span className="mr-2 text-yellow-300">className</span>
-        <span className="mr-2">=</span>
-        <span className=" text-green-500">{`"`}</span>
-        <span className="text-green-500">
-          h-full w-full bg-{color}-{saturation} rounded-md bg-clip-padding
-          backdrop-filter backdrop-blur-{blur} bg-opacity-{opacity} border
-          border-gray-100
-        </span>
-        <span className="mr-2 text-green-500">{`"`}</span>
-        <span>{`>`}</span>
-        <br />
-
-        <span className="mr-2 ">{`<`}</span>
-        <span className="mr-2 text-blue-500">/div</span>
-        <span>{`>`}</span>
-      </p>
+        <FiCopy />
+      </button>
     </div>
   );
 };
